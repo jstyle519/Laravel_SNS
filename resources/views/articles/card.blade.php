@@ -5,9 +5,8 @@
     </a>
     <div>
       <div class="font-weight-bold">
-      <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
+        <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
         {{ $article->user->name }}
-      </a>
       </div>
       <div class="font-weight-lighter">
         {{ $article->created_at->format('Y/m/d H:i') }}
@@ -76,7 +75,7 @@
   <div class="card-body pt-0 pb-2 pl-3">
     <div class="card-text">
       <article-like
-        :initial-is-liked-by='@json($article->isLikedBy(Auth::user()))'      
+        :initial-is-liked-by='@json($article->isLikedBy(Auth::user()))'
         :initial-count-likes='@json($article->count_likes)'
         :authorized='@json(Auth::check())'
         endpoint="{{ route('articles.like', ['article' => $article]) }}"
